@@ -1,0 +1,15 @@
+<p>
+  <span class="group_estimated"><%= "Total estimado: "+issues[i,@issue_count_by_group[group]].inject(0.0){|sum,i| sum+i.estimated_hours.to_f}.to_s %></span>
+
+  <%
+  group_issues = issues[i,@issue_count_by_group[group]]
+  issue_statuses = group_issues.uniq{|i| i.status_id}.collect{|i2| [i2.status_id, i2.status.name]}
+  index=0
+  issue_statuses.each do |id,name|
+  %>
+    <%= ", " if index != 0 %>
+    <%= name+": "+group_issues.select{|i| i.status_id==id}.inject(0.0){|sum,i| sum+i.estimated_hours.to_f}.to_s %> 
+  <%
+    index+=1
+  end %>
+</p>
