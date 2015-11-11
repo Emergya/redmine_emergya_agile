@@ -3,12 +3,12 @@
 
   <%
   group_issues = issues[i,@issue_count_by_group[group]]
-  issue_statuses = group_issues.uniq{|i| i.status_id}.collect{|i2| [i2.status_id, i2.status.name]}
+  issue_categories = group_issues.uniq{|i| i.category_id}.reject{|i2| !i2.category_id.present?}.collect{|i3| [i3.category_id, i3.category.name]}
   index=0
-  issue_statuses.each do |id,name|
+  issue_categories.each do |id,name|
   %>
     <%= ", " if index != 0 %>
-    <%= name+": "+group_issues.select{|i| i.status_id==id}.inject(0.0){|sum,i| sum+i.estimated_hours.to_f}.to_s %> 
+    <%= name+": "+group_issues.select{|i| i.category_id==id}.inject(0.0){|sum,i| sum+i.estimated_hours.to_f}.to_s %> 
   <%
     index+=1
   end %>
