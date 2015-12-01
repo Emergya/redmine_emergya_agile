@@ -1,5 +1,5 @@
 <p>
-  <span class="group_estimated"><%= "Total estimado: "+issues[i,@issue_count_by_group[group]].inject(0.0){|sum,i| sum+i.estimated_hours.to_f}.to_s %></span>
+  <span class="group_estimated"><%= l(:"emergya_agile.total_scheduled")+": "+issues[i,@issue_count_by_group[group]].inject(0.0){|sum,i| sum+i.estimated_hours.to_f}.to_s %></span>
 
   <%
   group_issues = issues[i,@issue_count_by_group[group]]

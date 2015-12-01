@@ -1,0 +1,4 @@
+# Spanish strings go here for Rails i18n
+es:
+  emergya_agile:
+    total_scheduled: "Total planificado"
