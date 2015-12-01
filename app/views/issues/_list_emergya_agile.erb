@@ -3,5 +3,4 @@ content_for :header_tags do
 	stylesheet_link_tag 'emergya_agile.css', :plugin => 'redmine_emergya_agile'
 end
 i = -1
-issue_statuses = @project.trackers.map(&:issue_statuses).flatten.uniq.collect{|s| [s.id, s.name]}
 %>
